@@ -1,0 +1,7 @@
+Paste the puzzle description and example input here for Day 1, Puzzle 1.
+
+Example:
+---
+<example input>
+---
+<expected output>

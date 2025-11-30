@@ -1,0 +1,31 @@
+# Copilot Agent Instructions for Advent of Code 2025
+
+This repository is structured for solving Advent of Code puzzles using Copilot agent mode. Please follow these guidelines:
+
+- Each day (day01 to day12) has its own subfolder.
+- Each puzzle for a day is described in `puzzle-X.txt` (where X is the puzzle number, e.g., 1, 2, ...).
+- The real input for each puzzle is in `input.txt`.
+- Use the example in `puzzle-X.txt` to verify your solution before using the real input.
+- Write clear, well-commented Python code with functions for each part.
+- Structure code so it is easy to adapt for part 2 or further changes.
+- Commit with clear, descriptive messages.
+- To add or tweak agent instructions, edit this file or the README as needed.
+
+## Example Structure for a Day
+
+```
+day01/
+  puzzle-1.txt
+  puzzle-2.txt
+  input.txt
+  solution.py
+  test_solution.py
+```
+
+## Agent Best Practices
+- Always read all `puzzle-X.txt` files in order for the day.
+- Use the provided example(s) for testing before running on `input.txt`.
+- Keep code modular and easy to update for part 2.
+- Use clear function and variable names.
+- Add comments explaining logic and edge cases.
+- Make it easy to add new instructions or change agent behavior by editing this file.
