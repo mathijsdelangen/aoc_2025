@@ -59,13 +59,12 @@ coverage.xml
 # Windows
 Thumbs.db
 
-# Advent of Code inputs/outputs
+# Advent of Code puzzle descriptions and inputs (do not track)
+day*/input.txt
+day*/puzzle-*.txt
 input.txt
 output.txt
 
 # Agent/IDE files
 *.swp
 *.swo
-
-# Ignore puzzle input files in all day folders
-day*/input.txt

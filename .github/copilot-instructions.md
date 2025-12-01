@@ -23,7 +23,8 @@ day01/
 ```
 
 ## Agent Best Practices
-- Always read all `puzzle-X.txt` files in order for the day.
+- **Do not add or track Advent of Code puzzle descriptions or input files in the repository.** These files should remain local and are excluded by `.gitignore`.
+- Always read all `puzzle-X.txt` files in order for the day (if present locally).
 - Use the provided example(s) for testing before running on `input.txt`.
 - Keep code modular and easy to update for part 2.
 - Use clear function and variable names.

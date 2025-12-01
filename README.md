@@ -9,9 +9,12 @@ This repository is set up to solve Advent of Code 2025 puzzles using Copilot age
 - Solutions go in `solution.py`.
 - Tests for examples go in `test_solution.py`.
 
+
 ## Usage
-1. Copy the puzzle description and example(s) into `puzzle-X.txt`.
-2. Copy your input into `input.txt`.
+**Important:** Do not include or commit Advent of Code puzzle descriptions or input files in the repository. Keep these files local and ensure they are listed in `.gitignore`.
+
+1. Copy the puzzle description and example(s) into `puzzle-X.txt` (locally, not committed).
+2. Copy your input into `input.txt` (locally, not committed).
 3. Implement your solution in `solution.py`.
 4. Use the example(s) from `puzzle-X.txt` to write tests in `test_solution.py`.
 5. Run tests to verify your solution before using the real input.
