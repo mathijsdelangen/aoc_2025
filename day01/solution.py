@@ -5,18 +5,31 @@ Implement your solution in clear, well-commented functions.
 Adapt code for part 2 as needed.
 """
 
-# Example function for part 1
+
+# Solution for part 1
 def solve_part1(input_data: str) -> int:
-    """Solve part 1 of the puzzle using input_data."""
-    # TODO: Implement logic
-    pass
+    """Simulate the dial and count how many times it points at 0 after a rotation."""
+    position = 50
+    count_zero = 0
+    for line in input_data.strip().splitlines():
+        if not line:
+            continue
+        direction = line[0]
+        value = int(line[1:])
+        if direction == 'L':
+            position = (position - value) % 100
+        elif direction == 'R':
+            position = (position + value) % 100
+        else:
+            raise ValueError(f"Invalid direction: {direction}")
+        if position == 0:
+            count_zero += 1
+    return count_zero
 
 # Example function for part 2
 def solve_part2(input_data: str) -> int:
-    """Solve part 2 of the puzzle using input_data."""
-    # TODO: Implement logic
+    """Placeholder for part 2."""
     pass
-
 if __name__ == "__main__":
     with open("input.txt") as f:
         input_data = f.read()
