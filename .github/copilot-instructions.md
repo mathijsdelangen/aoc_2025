@@ -1,3 +1,22 @@
+## Additional Agent Best Practices
+
+- **Clarify Puzzle Logic Interpretation:**
+  - When implementing logic based on a puzzle description, always clarify edge cases and provide explicit examples in the instructions or tests. If the description is ambiguous, prompt the user for clarification before proceeding.
+
+- **Test-Driven Development:**
+  - Always write or update tests for helper functions and edge cases before implementing or refactoring logic. Use the provided examples to create comprehensive tests.
+
+- **Error Handling and Feedback:**
+  - If a test fails, analyze the failure and suggest possible causes or clarifications before making further changes. Avoid making multiple speculative changes in a row.
+
+- **PowerShell Command Chaining:**
+  - When running multiple git or shell commands, use PowerShell-compatible syntax (`;` instead of `&&`) to avoid errors.
+
+- **Explicitly Confirm Requirements:**
+  - If a requirement or expected behavior is unclear (e.g., what counts as an invalid ID), ask the user for confirmation before proceeding.
+
+- **Patch and Test Cycle:**
+  - After each code change, always run the relevant tests and only proceed if all tests pass.
 # Copilot Agent Instructions for Advent of Code 2025
 
 This repository is structured for solving Advent of Code puzzles using Copilot agent mode. Please follow these guidelines:
