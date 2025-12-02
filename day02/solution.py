@@ -1,3 +1,22 @@
+def is_invalid_id_part2(n: int) -> bool:
+    s = str(n)
+    l = len(s)
+    # Try all possible chunk sizes from 1 up to half the length
+    for size in range(1, l // 2 + 1):
+        if l % size != 0:
+            continue
+        chunk = s[:size]
+        if chunk * (l // size) == s:
+            return True
+    return False
+
+def solve_part2(input_line: str) -> int:
+    total = 0
+    for start, end in parse_ranges(input_line):
+        for n in range(start, end + 1):
+            if is_invalid_id_part2(n):
+                total += n
+    return total
 """
 Advent of Code 2025 - Day 2 Solution
 
@@ -31,3 +50,4 @@ if __name__ == "__main__":
     with open("input.txt") as f:
         input_line = f.read().strip()
     print("Part 1:", solve_part1(input_line))
+    print("Part 2:", solve_part2(input_line))
