@@ -1,12 +1,9 @@
-"""
-Advent of Code 2025 - Day 1 Solution
+"""Advent of Code 2025 - Day 1 Solution
 
 Implement your solution in clear, well-commented functions.
 Adapt code for part 2 as needed.
 """
 
-
-# Solution for part 1
 def solve_part1(input_data: str) -> int:
     """Simulate the dial and count how many times it points at 0 after a rotation."""
     position = 50
@@ -26,7 +23,7 @@ def solve_part1(input_data: str) -> int:
             count_zero += 1
     return count_zero
 
-# Example function for part 2
+
 def solve_part2(input_data: str) -> int:
     """Count all times the dial points at 0 during any rotation, including during the movement."""
     position = 50
@@ -51,6 +48,8 @@ def solve_part2(input_data: str) -> int:
         else:
             raise ValueError(f"Invalid direction: {direction}")
     return count_zero
+
+
 if __name__ == "__main__":
     with open("input.txt") as f:
         input_data = f.read()
