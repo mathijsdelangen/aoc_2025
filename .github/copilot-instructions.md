@@ -44,9 +44,17 @@ day01/
   - Only include `if __name__ == "__main__":` in solution files, not in test files.
   - Test files should only import what is needed and use clear, consistent test naming.
   - Each test file should have a header comment explaining what is being tested.
-  - Use `unittest` or `pytest` style consistently in test files.
+  - Use `pytest` style consistently in test files.
   - No unnecessary code (e.g., commented-out code, unused variables).
   - Review all code for consistency in style, whitespace, and structure before finalizing.
+
+- **Testing Instructions:**
+  - Always use `pytest` for writing and running tests.
+  - To run tests for a specific day, use:
+    ```powershell
+    python -m pytest dayXX
+    ```
+    (Replace `dayXX` with the appropriate day folder, e.g., `day03`.)
 
 
 ## Additional Agent Best Practices

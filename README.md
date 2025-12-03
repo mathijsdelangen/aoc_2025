@@ -25,6 +25,11 @@ This repository is set up to solve Advent of Code 2025 puzzles using Copilot age
 - Write clear, modular, and well-commented code.
 - Make it easy to adapt code for part 2 or further changes.
 - Commit with clear messages.
+- **Use pytest for all testing. Run tests with:**
+  ```powershell
+  python -m pytest dayXX
+  ```
+  (Replace `dayXX` with the appropriate day folder, e.g., `day03`.)
 
 ## Tweaking Agent Behavior
 - Edit `.github/copilot-instructions.md` to change agent instructions.
