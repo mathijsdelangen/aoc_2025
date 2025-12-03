@@ -50,12 +50,19 @@ day01/
 
 - **Testing Instructions:**
   - Always use `pytest` for writing and running tests.
-  - To run tests for a specific day, use:
+  - To run tests for a specific day, open a terminal in the day's folder and run:
     ```powershell
-    python -m pytest dayXX
+    python -m pytest
     ```
-    (Replace `dayXX` with the appropriate day folder, e.g., `day03`.)
-
+  - To run all tests for all days, run in the repo root:
+    ```powershell
+    python -m pytest
+    ```
+- **To run a solution for a day:**
+  - In the relevant day folder, run:
+    ```powershell
+    python solution.py
+    ```
 
 ## Additional Agent Best Practices
 
