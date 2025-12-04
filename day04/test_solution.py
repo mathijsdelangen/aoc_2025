@@ -1,7 +1,7 @@
 """Tests for Advent of Code 2025 - Day 4 Solution"""
 
 import pytest
-from solution import parse_input, count_accessible_rolls
+from solution import parse_input, count_accessible_rolls, total_removed_rolls
 
 EXAMPLE = """
 ..@@.@@@@.
@@ -26,3 +26,7 @@ def test_parse_input():
 def test_count_accessible_rolls():
     grid = parse_input(EXAMPLE)
     assert count_accessible_rolls(grid) == 13
+
+def test_total_removed_rolls():
+    grid = parse_input(EXAMPLE)
+    assert total_removed_rolls(grid) == 43
