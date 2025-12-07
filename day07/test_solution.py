@@ -6,6 +6,9 @@ Covers parsing, beam simulation, and split counting for the example in puzzle-1.
 import pytest
 from solution import parse_grid, count_splits
 
+import sys
+sys.setrecursionlimit(10000)
+
 EXAMPLE = """
 .......S.......
 ...............
@@ -39,3 +42,12 @@ def test_count_splits_example():
 	result = count_splits(grid, start)
 	print('Splits:', result)
 	assert result == 21
+
+
+def test_count_timelines_example():
+	from solution import count_timelines
+	grid, start = parse_grid(EXAMPLE)
+	result, ends = count_timelines(grid, start, debug=True)
+	print('Timelines:', result)
+	print('End positions:', sorted(ends))
+	assert result == 40

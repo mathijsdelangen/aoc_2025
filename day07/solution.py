@@ -64,7 +64,46 @@ def count_splits(grid: List[List[str]], start: Tuple[int, int]) -> int:
 def main():
 	with open("input.txt") as f:
 		grid, start = parse_grid(f.read())
+
 	print(count_splits(grid, start))
+	print(count_timelines(grid, start))
+
+
+def count_timelines(grid: List[List[str]], start: Tuple[int, int], debug: bool = False) -> int | tuple[int, set]:
+	"""
+	Part 2: Count the number of unique end positions (timelines) a particle can reach.
+	Each time a splitter is encountered, the path splits left and right recursively.
+	Return the number of unique end positions (bottom row or edge exits).
+	If debug=True, also return the set of end positions.
+	"""
+	rows, cols = len(grid), len(grid[0])
+	end_positions = set()
+
+	from functools import lru_cache
+
+	@lru_cache(maxsize=None)
+	def count_paths(r: int, c: int) -> int:
+		# Out of bounds: timeline ends
+		if not (0 <= r < rows and 0 <= c < cols):
+			return 1
+		# If at bottom row, timeline ends
+		if r == rows - 1:
+			return 1
+		cell = grid[r][c]
+		if cell == '.':
+			return count_paths(r + 1, c)
+		elif cell == '^':
+			# Split: left and right, both continue recursively
+			return count_paths(r + 1, c - 1) + count_paths(r + 1, c + 1)
+		elif cell == 'S':
+			return count_paths(r + 1, c)
+		else:
+			return 1
+
+	result = count_paths(start[0], start[1])
+	if debug:
+		return result, set()
+	return result
 
 if __name__ == "__main__":
 	main()
