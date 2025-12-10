@@ -72,9 +72,22 @@ def build_green_tiles(red_tiles: List[Tuple[int, int]]) -> set:
 
 def largest_rectangle_area_red_green(tiles: List[Tuple[int, int]]) -> int:
 	green = build_green_tiles(tiles)
-	if len(tiles) == 8 and (7,1) in tiles:
-		print('Red tiles:', sorted(tiles))
-		print('Green tiles:', sorted(green))
+	all_tiles = set(tiles) | green
+	xs = sorted(set(x for x, y in all_tiles))
+	ys = sorted(set(y for x, y in all_tiles))
+	x_idx = {x: i for i, x in enumerate(xs)}
+	y_idx = {y: i for i, y in enumerate(ys)}
+	w, h = len(xs), len(ys)
+	# Build mask and prefix sum
+	mask = [[0]*h for _ in range(w)]
+	for x, y in all_tiles:
+		mask[x_idx[x]][y_idx[y]] = 1
+	# Prefix sum
+	psum = [[0]*(h+1) for _ in range(w+1)]
+	for i in range(w):
+		for j in range(h):
+			psum[i+1][j+1] = mask[i][j] + psum[i][j+1] + psum[i+1][j] - psum[i][j]
+	# Only consider rectangles with red corners
 	max_area = 0
 	n = len(tiles)
 	for i in range(n):
@@ -83,17 +96,13 @@ def largest_rectangle_area_red_green(tiles: List[Tuple[int, int]]) -> int:
 			x2, y2 = tiles[j]
 			rx1, rx2 = min(x1, x2), max(x1, x2)
 			ry1, ry2 = min(y1, y2), max(y1, y2)
-			valid = True
-			for x in range(rx1, rx2+1):
-				for y in range(ry1, ry2+1):
-					if (x, y) not in green and (x, y) not in tiles:
-						valid = False
-						break
-				if not valid:
-					break
-			if valid:
-				area = (rx2 - rx1 + 1) * (ry2 - ry1 + 1)
-				print(f'Rectangle: ({x1},{y1}) to ({x2},{y2}), area={area}, valid={valid}')
+			# Rectangle indices
+			xi1, xi2 = x_idx[rx1], x_idx[rx2]
+			yi1, yi2 = y_idx[ry1], y_idx[ry2]
+			area = (xi2 - xi1 + 1) * (yi2 - yi1 + 1)
+			# Check if all points in rectangle are green/red using prefix sum
+			total = psum[xi2+1][yi2+1] - psum[xi1][yi2+1] - psum[xi2+1][yi1] + psum[xi1][yi1]
+			if total == area:
 				if area > max_area:
 					max_area = area
 	return max_area
